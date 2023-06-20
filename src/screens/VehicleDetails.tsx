@@ -41,7 +41,7 @@ const VehicleDetails = () => {
   };
   const handleOnConnectByWP = () => {
     Linking.openURL(
-      `whatsapp://send?text=Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе&phone=${vehicleDetails.contactNumber}`,
+      `whatsapp://send?text=Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе&phone=${selectedVehicle.contactNumber}`,
     );
   };
   console.log(selectedVehicle, 'selectedVehicle');
