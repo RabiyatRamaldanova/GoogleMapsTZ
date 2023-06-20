@@ -23,6 +23,7 @@ import {VehicleTypeCheckboxes} from '../components';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {getVehiclesAPI} from '../api';
 import {AppContext} from '../../App';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type VehicleListScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
@@ -54,6 +55,7 @@ const VehicleList = () => {
   const navigation = useNavigation<VehicleListScreenNavigationProp>();
   const {t} = useTranslation();
   const {state, dispatch} = useContext(AppContext);
+  const insets = useSafeAreaInsets();
   const {filteredVehicleList} = state;
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -95,7 +97,7 @@ const VehicleList = () => {
   }, [dispatch]);
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {top: insets.top}]}>
       <TouchableOpacity
         style={styles.settingsButton}
         onPress={handelOnPressSettings}>
@@ -175,5 +177,5 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   switchButtonText: {color: '#485563'},
-  settingsButton: {position: 'absolute', bottom: 10, right: 10, zIndex: 10},
+  settingsButton: {position: 'absolute', bottom: 30, right: 10, zIndex: 10},
 });

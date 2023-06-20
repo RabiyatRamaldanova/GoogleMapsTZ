@@ -57,7 +57,7 @@ const VehicleTypeCheckboxes = () => {
             value={isChoosedCargo}
             onValueChange={newValue => setIsChoosedCargo(newValue)}
           />
-          <Text>{t('CARGO')}</Text>
+          <Text style={styles.checkbpxText}>{t('CARGO')}</Text>
         </View>
         <View style={styles.checkBoxcontainer}>
           <CheckBox
@@ -65,7 +65,7 @@ const VehicleTypeCheckboxes = () => {
             value={isChoosedPassenger}
             onValueChange={newValue => setIsChoosedPassenger(newValue)}
           />
-          <Text>{t('PASSENGER')}</Text>
+          <Text style={styles.checkbpxText}>{t('PASSENGER')}</Text>
         </View>
         <View style={styles.checkBoxcontainer}>
           <CheckBox
@@ -73,7 +73,7 @@ const VehicleTypeCheckboxes = () => {
             value={isChoosedSpecial}
             onValueChange={newValue => setIsChoosedSpecial(newValue)}
           />
-          <Text>{t('SPECIAL')}</Text>
+          <Text style={styles.checkbpxText}>{t('SPECIAL')}</Text>
         </View>
       </View>
       <TouchableOpacity
@@ -103,11 +103,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: 10,
   },
-  checkBoxcontainer: {flexDirection: 'row', alignItems: 'center'},
+  checkBoxcontainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 3,
+  },
   checkBoxGroupContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
     justifyContent: 'space-around',
   },
+  checkbpxText: {color: '#485563', marginLeft: 5},
 });

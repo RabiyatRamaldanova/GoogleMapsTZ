@@ -1,19 +1,27 @@
 import React, {createContext} from 'react';
 import RootNavigation from './src/navigation';
 import useAppReducer from './src/hooks/useAppReducer';
-import {InitialStateType} from './src/types';
+import {CategoryString, InitialStateType} from './src/types';
 
 const initialState = {
   selectedVehicle: {
+    id: '',
+    name: '',
     driverName: '',
-    driverNumber: '',
-    category: '',
+    category: '' as CategoryString,
+    location: {
+      latitude: 0,
+      longitude: 0,
+    },
+    contactNumber: '',
   },
   checkbox: {
-    isChoosedCargo: false,
-    isChoosedPassenger: false,
-    isChoosedSpecial: false,
+    isChoosedCargo: true,
+    isChoosedPassenger: true,
+    isChoosedSpecial: true,
   },
+  vehicleList: [],
+  filteredVehicleList: [],
 };
 
 export const AppContext = createContext<{
